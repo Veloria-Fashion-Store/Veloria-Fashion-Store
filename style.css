@@ -1,0 +1,76 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Use your desired font */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 1. Top Promotional Banner */
+.top-promo-banner {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.top-promo-banner a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+/* --- Responsive Design using Media Query (Tablet/Desktop View) --- */
+@media (min-width: 768px) {
+    .main-header {
+        padding: 20px 40px;
+    }
+    
+    /* 2. Main Header (Desktop/Tablet Adjustments) */
+    
+    /* Show nav links on desktop */
+    .nav-links {
+        display: block;
+    }
+
+    .nav-links ul {
+        display: flex;
+        gap: 25px;
+    }
+
+    /* Hide the mobile menu icon */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Show the search bar on desktop */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #f0f0f0; /* Light gray background for search */
+        padding: 8px 15px;
+        border-radius: 30px;
+    }
+
+    .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        padding-right: 10px;
+        width: 250px; /* Adjust width as needed */
+    }
+    
+    .search-icon {
+        color: #777;
+    }
+}
