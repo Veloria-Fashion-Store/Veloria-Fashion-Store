@@ -139,6 +139,128 @@ ul {
     text-decoration: underline;
     font-weight: bold;
 }
+/*  REVIEWS SECTION */
+.reviews-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.reviews-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+
+/*   HEADER (TITLE + ARROWS) */
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+/* Top arrow buttons */
+.slide-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+}
+
+.slide-btn:hover {
+  transform: scale(1.1);
+}
+
+.prev,
+.next {
+  position: static; /* Ensure NOT tied to slider */
+}
+
+/*SLIDER CORE*/
+
+.slider {
+  width: 100%;
+  position: relative;
+}
+
+.slides-wrapper {
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  gap: 28px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* REVIEW CARDS*/
+
+.review-card {
+  min-width: 350px;
+  background: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+.stars {
+  color: #FFC107;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.review-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Verified green check badge */
+.verified {
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified::before {
+  content: "✓";
+  font-size: 10px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+  top: -1px;
+}
+
+
+.review-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.review-card time {
+  font-size: 13px;
+  color: #666;
+}
 
 
 /* --- Responsive Design using Media Query (Tablet/Desktop View) --- */
@@ -258,11 +380,11 @@ ul {
 
 .hero-stats-container{
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .hero-stats h2{
-    font-size: 3rem;
+    font-size: 2.6rem;
     margin: 0;
     color: #000;
 }
@@ -306,4 +428,78 @@ ul {
   right: -40px;
     max-width: 150px;         
   max-height: 150px;
+}
+
+@media (min-width: 768px) {
+
+    .hero section{
+        flex-direction: column;
+        gap:10px;
+    }
+}
+/* Review/ Happy customer Section*/
+
+/* TABLET VIEW (max-width: 768px) */
+
+@media (max-width: 768px) {
+  .review-card {
+    min-width: calc(50% - 14px);  /* two cards with spacing */
+    max-width: calc(50% - 14px);
+    padding: 18px;
+  }
+
+  .slides {
+    gap: 18px;   /* slightly reduced spacing for tablet */
+  }
+  .reviews-header h2 {
+    font-size: 26px;
+  }
+
+  .slide-btn {
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+
+  .review-card p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+
+/* ------------------------------ */
+/* MOBILE VIEW (max-width: 480px) */
+/* ------------------------------ */
+@media (max-width: 480px) {
+
+  /* One card per slide */
+  .review-card {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .slides {
+    gap: 14px;
+  }
+
+  .reviews-section {
+    padding: 20px 14px;
+  }
+
+  /* Center title */
+  .reviews-header h2 {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .header-arrows {
+    gap: 8px;
+  }
+
+  /* Shrink arrow buttons slightly */
+  .slide-btn {
+    font-size: 18px;
+    padding: 8px 10px;
+  }
 }
