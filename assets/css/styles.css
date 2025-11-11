@@ -26,6 +26,128 @@ ul {
     text-decoration: underline;
     font-weight: bold;
 }
+/*  REVIEWS SECTION */
+.reviews-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.reviews-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+
+/*   HEADER (TITLE + ARROWS) */
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+/* Top arrow buttons */
+.slide-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+}
+
+.slide-btn:hover {
+  transform: scale(1.1);
+}
+
+.prev,
+.next {
+  position: static; /* Ensure NOT tied to slider */
+}
+
+/*SLIDER CORE*/
+
+.slider {
+  width: 100%;
+  position: relative;
+}
+
+.slides-wrapper {
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  gap: 28px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* REVIEW CARDS*/
+
+.review-card {
+  min-width: 350px;
+  background: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+.stars {
+  color: #FFC107;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.review-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Verified green check badge */
+.verified {
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified::before {
+  content: "✓";
+  font-size: 10px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+  top: -1px;
+}
+
+
+.review-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.review-card time {
+  font-size: 13px;
+  color: #666;
+}
 
 
 /* --- Responsive Design using Media Query (Tablet/Desktop View) --- */
@@ -201,4 +323,271 @@ ul {
         flex-direction: column;
         gap:10px;
     }
+}
+/* Review/ Happy customer Section*/
+
+/* TABLET VIEW (max-width: 768px) */
+
+@media (max-width: 768px) {
+  .review-card {
+    min-width: calc(50% - 14px);  /* two cards with spacing */
+    max-width: calc(50% - 14px);
+    padding: 18px;
+  }
+
+  .slides {
+    gap: 18px;   /* slightly reduced spacing for tablet */
+  }
+  .reviews-header h2 {
+    font-size: 26px;
+  }
+
+  .slide-btn {
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+
+  .review-card p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+
+/* ------------------------------ */
+/* MOBILE VIEW (max-width: 480px) */
+/* ------------------------------ */
+@media (max-width: 480px) {
+
+  /* One card per slide */
+  .review-card {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .slides {
+    gap: 14px;
+  }
+
+  .reviews-section {
+    padding: 20px 14px;
+  }
+
+  /* Center title */
+  .reviews-header h2 {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .header-arrows {
+    gap: 8px;
+  }
+
+  /* Shrink arrow buttons slightly */
+  .slide-btn {
+    font-size: 18px;
+    padding: 8px 10px;
+  }
+}
+
+/* Newsletter Section */
+.newsletter {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  top: 60px; /* pushes it downward to overlap footer */
+  z-index: 2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.newsletter h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 25px;
+  width: 280px;
+  max-width: 100%;
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-form button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #d1d1d1;
+}
+
+/* Footer Section */
+.footer {
+  width: 100vw; /* full viewport width */
+  background: #f8f8f8;
+  padding: 100px 0 20px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw; /* ensures it spans full screen even inside a container */
+  margin-right: -50vw;
+  z-index: 1;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 40px; /* inner spacing for content */
+}
+
+
+
+.footer-brand {
+  flex: 1 1 250px;
+}
+
+.footer-brand h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  filter: invert(0);
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  opacity: 0.6;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  flex: 3;
+  justify-content: space-between;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #000;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 40px;
+}
+
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.payment-icons img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .newsletter h2 {
+    font-size: 1.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input, 
+  .newsletter-form button {
+    width: 90%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
 }
