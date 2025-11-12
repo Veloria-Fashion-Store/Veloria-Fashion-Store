@@ -1,0 +1,299 @@
+/* --- Global Font */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Main Container--- */
+.product-review-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* --- 1. Navigation Tabs --- */
+.product-review-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #E5E7EB;
+    background-color: #F9FAFB;
+}
+
+.product-review-tab-link {
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.product-review-tab-link.active {
+    color: #111827;
+    border-bottom-color: #111827;
+}
+
+.product-review-tab-link:hover:not(.active) {
+    color: #374151;
+    border-bottom-color: #D1D5DB;
+}
+
+/* --- Main Content Area --- */
+.product-review-content {
+    padding: 2.5rem 3rem;
+}
+
+/* --- 2. Reviews Header--- */
+.product-review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-review-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.product-review-title span {
+    color: #6B7280;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.product-review-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- Buttons --- */
+button {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.product-review-primary-button {
+    background-color: #111827;
+    color: #ffffff;
+    border: 1px solid #111827;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+}
+
+.product-review-primary-button:hover {
+    background-color: #374151;
+    border-color: #374151;
+}
+
+.product-review-secondary-button {
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #D1D5DB;
+    padding: 0.75rem 1.25rem;
+}
+
+.product-review-secondary-button:hover {
+    background-color: #F9FAFB;
+    border-color: #9CA3AF;
+}
+
+.product-review-icon-button {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: none;
+    border-radius: 50%;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+}
+
+.product-review-icon-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.product-review-options-button {
+    background: none;
+    border: none;
+    color: #6B7280;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-review-options-button:hover {
+    background-color: #F9FAFB;
+    color: #111827;
+}
+
+.product-review-icon-button:hover {
+    background-color: #E5E7EB;
+    color: #111827;
+}
+
+.product-review-sort-button:hover {
+    background-color: #E5E7EB;
+}
+
+.product-review-sort-button {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+}
+
+.product-review-sort-button span {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+}
+
+/* --- 3. Reviews Grid--- */
+.product-review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* --- Review Card--- */
+.product-review-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.product-review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.product-review-card-body .product-review-reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-review-reviewer-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.product-review-text {
+    color: #4B5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+.product-review-card-footer .product-review-post-date {
+    color: #9CA3AF;
+    font-size: 0.85rem;
+}
+
+/* --- 4. Load More Footer--- */
+.product-review-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.product-review-star-rating {
+    color: #FFC107;
+    font-size: 18px;
+}
+
+/* ---Verified Badge --- */
+.product-review-reviewer-info .product-review-verified-badge {
+
+    width: 18px;
+    height: 18px;
+    background-color: #10B981;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.product-review-verified-badge::before {
+
+    content: "✓";
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    top: -1px;
+
+}
+
+
+.product-review-reviewer-info span {
+    font-size: 1rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .product-review-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-review-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .product-review-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-review-controls {
+        justify-content: space-between;
+    }
+
+    .product-review-sort-button {
+        flex-grow: 1;
+    }
+
+    .product-review-primary-button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
