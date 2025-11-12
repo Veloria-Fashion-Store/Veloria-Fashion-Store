@@ -4,10 +4,410 @@
     <meta charset="UTF-8">
     <title>Events - Veloria</title>
     <link rel="stylesheet" href="style.css"> 
+    <!-- Import Google Font 'Inter' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS variables for Black & White Theme */
+        :root {
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-gray-lightest: #F9F9F9;
+            --color-gray-light: #DDDDDD;
+            --color-gray-medium: #999999;
+            --color-gray-dark: #555555;
+            --color-gray-darkest: #111111;
+        }
+
+        /* Basic Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-white); /* Was --color-gray-100 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: var(--color-black); /* Was --color-gray-900 */
+            line-height: 1.6;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 3rem 1rem; /* py-12 px-4 */
+        }
+
+        /* Responsive padding for main container */
+        @media (min-width: 640px) {
+            main {
+                padding-left: 1.5rem; /* sm:px-6 */
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            main {
+                padding-left: 2rem; /* lg:px-8 */
+                padding-right: 2rem;
+            }
+        }
+
+        /* Page Title */
+        h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--color-black); /* Was --color-gray-900 */
+            margin-bottom: 2rem; /* mb-8 */
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 2.25rem; /* sm:text-4xl */
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background-color: var(--color-black); /* Was --color-gray-900 */
+            color: var(--color-white);
+            border-radius: 1rem; /* rounded-2xl */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            overflow: hidden;
+            margin-bottom: 4rem; /* mb-16 */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            /* Add a grayscale filter to the image */
+            filter: grayscale(100%);
+        }
+
+        .hero-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem; /* p-12 */
+            text-align: center;
+        }
+
+        .hero-badge {
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* font-semibold */
+            text-transform: uppercase;
+            letter-spacing: 0.05em; /* tracking-wider */
+            background-color: var(--color-white); /* Was --color-red-600 */
+            color: var(--color-black); /* Was #FFFFFF */
+            padding: 0.25rem 0.75rem; /* py-1 px-3 */
+            border-radius: 9999px; /* rounded-full */
+            display: inline-block;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .hero-title {
+            font-size: 2.25rem; /* text-4xl */
+            line-height: 2.5rem;
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .hero-desc {
+            font-size: 1.125rem; /* text-lg */
+            line-height: 1.75rem;
+            max-width: 42rem; /* max-w-2xl */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem; /* mb-8 */
+            color: var(--color-gray-light); /* Was --color-gray-200 */
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: var(--color-white); /* Was --color-primary */
+            color: var(--color-black); /* Was #FFFFFF */
+            font-weight: 700; /* font-bold */
+            font-size: 1.125rem; /* text-lg */
+            padding: 0.75rem 2.5rem; /* py-3 px-10 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transition: background-color 300ms;
+            text-decoration: none;
+        }
+        .hero-button:hover {
+            background-color: var(--color-gray-lightest); /* Was --color-primary-hover */
+        }
+
+        /* Responsive Hero Content */
+        @media (min-width: 640px) {
+            .hero-content { padding: 5rem; } /* sm:p-20 */
+            .hero-title { font-size: 3rem; line-height: 1; } /* sm:text-5xl */
+            .hero-desc { font-size: 1.25rem; line-height: 1.75rem; } /* sm:text-xl */
+        }
+        @media (min-width: 1024px) {
+            .hero-content { padding: 6rem; } /* lg:p-24 */
+            .hero-title { font-size: 3.75rem; line-height: 1; } /* lg:text-6xl */
+        }
+
+
+        /* Events Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+            gap: 2rem; /* gap-8 */
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+            }
+        }
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+            }
+        }
+
+        /* Event Card */
+        .event-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-light); /* Added border */
+            border-radius: 1rem; /* rounded-2xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02); /* Lighter shadow */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 300ms;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 14rem; /* h-56 */
+            object-fit: cover;
+            /* Add a grayscale filter to all card images */
+            filter: grayscale(100%);
+        }
+
+        .card-content {
+            padding: 1.5rem; /* p-6 */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* This makes the card content fill the space, pushing the button to the bottom */
+        }
+
+        .card-title {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-black); /* Was --color-gray-900 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .card-desc {
+            color: var(--color-gray-dark); /* Was --color-gray-700 */
+            margin-bottom: 1rem; /* mb-4 */
+            flex-grow: 1; /* This makes the description fill space, pushing button down */
+        }
+
+        /* General Card Button */
+        .card-button {
+            margin-top: auto; /* Pushes button to bottom of card-content */
+            display: inline-block;
+            font-weight: 600; /* font-semibold */
+            padding: 0.5rem 1.25rem; /* py-2 px-5 */
+            border-radius: 0.5rem; /* rounded-lg */
+            text-align: center;
+            transition: background-color 200ms, color 200ms;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+        .card-button:hover {
+            background-color: var(--color-gray-darkest);
+        }
+
+        /* Removed all color-specific button styles */
+
+        .card-button-halloween {
+            background-color: var(--color-gray-lightest);
+            color: var(--color-gray-medium);
+            cursor: not-allowed;
+            border: 1px solid var(--color-gray-light);
+        }
+        .card-button-halloween:hover {
+            background-color: var(--color-gray-lightest);
+            color: var(--color-gray-medium);
+        }
+
+    </style>
 </head>
 <body>
     <main class="events-page">
+ <h1>Upcoming Events</h1>
+
+        <!-- Hero Event (Most Relevant) -->
+        <section class="hero-section">
+            <img 
+                src="https://placehold.co/1200x500/1F2937/FFFFFF?text=Black+Friday+Deals" 
+                alt="Black Friday Sale Banner" 
+                class="hero-bg"
+                onerror="this.src='https://placehold.co/1200x500/1F2937/FFFFFF?text=Sale+Event'"
+            >
+            <div class="hero-content">
+                <h2 class="hero-badge">
+                    Starts Soon!
+                </h2>
+                <h3 class="hero-title">
+                    Black Friday Style Access
+                </h3>
+                <p class="hero-desc">
+                    Get a head start on the biggest fashion deals of the year. Shop our best-selling styles before they're gone!
+                </p>
+                <a href="#" class="hero-button">
+                    Shop Early Styles
+                </a>
+            </div>
+        </section>
+
+        <!-- Grid of Holiday Events -->
+        <section class="grid-container">
+
+            <!-- Event Card: Cyber Monday -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Cyber+Monday" 
+                    alt="Cyber Monday"
+                    onerror="this.src='https://placehold.co/600x400/1E40AF/FFFFFF?text=Apparel+Deals'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">Cyber Monday Exclusives</h3>
+                    <p class="card-desc">
+                        Don't miss our online-only mega-sale. Unbeatable prices on coats, denim, shoes, and more.
+                    </p>
+                    <a href="#" class="card-button card-button-cyber-monday">
+                        Preview Online Deals
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card: Christmas / Holiday -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/B91C1C/FFFFFF?text=Holiday+Sweater+Shop" 
+                    alt="Christmas Gifts"
+                    onerror="this.src='https://placehold.co/600x400/B91C1C/FFFFFF?text=Gift+Guide'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">The Holiday Gift Guide</h3>
+                    <p class="card-desc">
+                        Find the perfect gift. Explore curated collections of cozy sweaters, winter accessories, and more.
+                    </D>
+                    <a href="#" class="card-button card-button-holiday">
+                        Shop Gift Guide
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card: New Year's Sale -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/F59E0B/000000?text=New+Year,+New+Look" 
+                    alt="New Year Sale"
+                    onerror="this.src='https://placehold.co/600x400/F59E0B/000000?text=New+Year+Sale'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">New Year, New Look Sale</h3>
+                    <p class="card-desc">
+                        Kick off 2026 with amazing deals on activewear, loungewear, and fresh styles for the new year.
+                    </p>
+                    <a href="#" class="card-button card-button-new-year">
+                        Start Fresh
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card: Valentine's Day -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/DB2777/FFFFFF?text=Date+Night+Outfits" 
+                    alt="Valentine's Day"
+                    onerror="this.src='https://placehold.co/600x400/DB2777/FFFFFF?text=Valentine's'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">Valentine's Day Shop</h3>
+                    <p class="card-desc">
+                        Find the perfect look for your sweetheart (or yourself!). Shop date-night dresses, jewelry, and more.
+                    </p>
+                    <a href="#" class="card-button card-button-valentines">
+                        Shop Date Night
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card: Easter -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/A7F3D0/1F2937?text=Spring+Fashion" 
+                    alt="Easter Sale"
+                    onerror="this.src='https://placehold.co/600x400/A7F3D0/1F2937?text=Spring+Sale'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">The Spring Style Event</h3>
+                    <p class="card-desc">
+                        Hop into spring with fresh deals for your wardrobe. Shop new dresses, lightweight jackets, and pastels.
+                    </p>
+                    <a href="#" class="card-button card-button-spring">
+                        Shop Spring Looks
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Event Card: Halloween -->
+            <div class="event-card">
+                <img 
+                    class="card-img" 
+                    src="https://placehold.co/600x400/F97316/000000?text=Halloween+Costumes" 
+                    alt="Halloween"
+                    onerror="this.src='https://placehold.co.com/600x400/F97316/000000?text=Halloween'"
+                >
+                <div class="card-content">
+                    <h3 class="card-title">The Halloween Shop</h3>
+                    <p class="card-desc">
+                        Get everything you need for a spooky season! Shop costumes, festive apparel, and accessories. (Event has passed)
+                    </D>
+                    <a href="#" class="card-button card-button-halloween">
+                        See Next Year's Preview
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        
         </main>
     
     </body>
+
 </html>
